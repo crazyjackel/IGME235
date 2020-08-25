@@ -1,0 +1,3 @@
+ModPagespeed off
+ErrorDocument 404 /jel6623/235/error/error.html
+DirectoryIndex noterror.html
