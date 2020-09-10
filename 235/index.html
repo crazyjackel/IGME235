@@ -1,11 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--Colors: FFFFFF, 57466c, 406763, 416d74, 261d22, 161812  -->
+    <style>
+        body {
+            background-color: #FFFFFF;
+            margin: 0px;
+        }
+
+        .site-header>* {
+            float: left;
+        }
+
+        .header-navigation {
+            float: right;
+        }
+
+        .icon {
+            width: 4em;
+            padding-top: 0.5rem;
+        }
+
+        .main-list-item {
+            float: left;
+            padding: 1rem;
+        }
+
+        .site-header {
+            background-color: #416d74;
+            overflow: hidden;
+            padding: 1rem 2rem;
+            height: 5rem;
+        }
+
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .image-content-body {
+            float: left;
+            background-color: #57466c;
+            padding: 4rem;
+            border-radius: 15%;
+            overflow: auto;
+        }
+
+        .image-content {
+            float: left;
+        }
+
+        .container {
+            float: left;
+        }
+
+        #main-nav {
+            list-style: none;
+        }
+
+        #top-icon {
+            float: right;
+        }
+
+        #intro {
+            padding: 2% 3%;
+        }
+
+        .padded-list-item {
+            padding: 0.5%;
+        }
+
+        .image-description {
+            padding-top: 5.5%;
+            width: 25rem;
+        }
+    </style>
 </head>
+
 <body>
-    Hello World!
+    <header class="site-header">
+        <div class="title-area">
+            <h1 class="site-title">
+                Jackson Levitt's 235 Website
+            </h1>
+        </div>
+        <div id="top-icon" class="icon">
+            <img src="MainImages/fix.svg" alt="Wrench Icon">
+        </div>
+        <nav class="header-navigation">
+            <ul id="main-nav">
+                <li id="main-nav_1" class="main-list-item">
+                    Projects
+                </li>
+                <li id="main-nav_2" class="main-list-item">
+                    Github
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="intro">
+            <div class="image-content-body">
+                <div class="image-content">
+                    <img src="MainImages/Portrait.png" alt="Jackson Levitt Portrait"
+                        style="height:100%;border-radius:50%;">
+                </div>
+                <div class="container">
+                    <div class="image-description">
+                        <ul id="intro-portrait-list">
+                            <li class="padded-list-item">
+                                Hobbies: Video Gaming, Walking, Cooking
+                            </li>
+                            <li class="padded-list-item">
+                                Areas of Study: Game Design and Development, Economics, Mathematics, Philosophy
+                            </li>
+                            <li class="padded-list-item">
+                                Programming/Scripting Languages: C#, Java, JavaScript, RScript
+                            </li>
+                            <li class="padded-list-item">
+                                Development Languages: CSS, HTML, Markdown
+                            </li>
+                            <li class="padded-list-item">
+                                Tools and Technologies: Blender, Github, Unity
+                            </li>
+                            <li class="padded-list-item">
+                                Libraries/Frameworks: BepInEx, Harmony
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="projects">
+
+        </div>
+        <div id="contact">
+
+        </div>
+    </main>
+    <footer class="site-footer">
+        <nav class="footer-navigation">
+
+            </div>
+            <div class="site-credit">
+                <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a
+                        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            </div>
+    </footer>
 </body>
+
 </html>
