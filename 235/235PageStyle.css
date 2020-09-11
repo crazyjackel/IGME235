@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    font-family: "dumboregular", Arial, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    overflow-x: hidden;
+}
+a {
+    color: hotpink
+}
+header {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 3%;
+    background-color: #231f20;
+}
+
+.navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 80px;
+}
+
+.wrapper {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: auto;
+}
+
+.selection {
+    float: right !important;
+}
+
+.navbar>li {
+    float: left;
+    vertical-align: text-bottom;
+    transform: skew(-9deg, 0deg);
+}
+
+li>h1 {
+    padding: 0 2em;
+}
+
+.navtext {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bolder;
+    padding: 0 1em;
+    margin-top: 1.2em;
+    margin-bottom: 1em;
+    border-left: 3px solid hotpink;
+    color: inherit;
+    text-decoration: none;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mainphoto {
+    border-radius: 50%;
+    padding-top: 8em;
+    padding-bottom: 8em;
+    position: relative;
+    z-index: 9;
+}
+
+#portrait {
+    background-color: #6EC289;
+    position: relative;
+}
+
+.selection:hover {
+    color: #82B1B0 !important;
+}
+
+@keyframes SkewMove {
+    0% {
+        left: 0%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.blackbar {
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+    left: -60px;
+    background-color: #231f20;
+    height: 100%;
+    width: 3%;
+    animation-name: SkewMove;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#biography {
+    background-color: #231f20;
+}
+
+.section-title {
+    margin: 0px;
+    text-align: center;
+    padding-top: 0em;
+    padding-bottom: 0.5em;
+    font-size: 3em;
+    text-decoration: underline;
+    text-decoration-color: hotpink;
+}
+
+.textbox {
+    width: 35%;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+#projects {
+    background-color: #721fd7;
+}
+.projectimage{
+    border-radius: 5%;
+    width:20rem;
+    height:16rem;
+    border: 5px solid white;
+}

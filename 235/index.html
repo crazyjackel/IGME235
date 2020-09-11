@@ -4,155 +4,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--Colors: FFFFFF, 57466c, 406763, 416d74, 261d22, 161812  -->
-    <style>
-        body {
-            background-color: #FFFFFF;
-            margin: 0px;
-        }
-
-        .site-header>* {
-            float: left;
-        }
-
-        .header-navigation {
-            float: right;
-        }
-
-        .icon {
-            width: 4em;
-            padding-top: 0.5rem;
-        }
-
-        .main-list-item {
-            float: left;
-            padding: 1rem;
-        }
-
-        .site-header {
-            background-color: #416d74;
-            overflow: hidden;
-            padding: 1rem 2rem;
-            height: 5rem;
-        }
-
-        .vertical-center {
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-        }
-
-        .image-content-body {
-            float: left;
-            background-color: #57466c;
-            padding: 4rem;
-            border-radius: 15%;
-            overflow: auto;
-        }
-
-        .image-content {
-            float: left;
-        }
-
-        .container {
-            float: left;
-        }
-
-        #main-nav {
-            list-style: none;
-        }
-
-        #top-icon {
-            float: right;
-        }
-
-        #intro {
-            padding: 2% 3%;
-        }
-
-        .padded-list-item {
-            padding: 0.5%;
-        }
-
-        .image-description {
-            padding-top: 5.5%;
-            width: 25rem;
-        }
-    </style>
+    <title>235 Home Page</title>
+    <link rel="stylesheet" href="235PageStyle.css">
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="title-area">
-            <h1 class="site-title">
-                Jackson Levitt's 235 Website
-            </h1>
-        </div>
-        <div id="top-icon" class="icon">
-            <img src="MainImages/fix.svg" alt="Wrench Icon">
-        </div>
-        <nav class="header-navigation">
-            <ul id="main-nav">
-                <li id="main-nav_1" class="main-list-item">
-                    Projects
-                </li>
-                <li id="main-nav_2" class="main-list-item">
+    <header>
+        <ul class="navbar" style="padding-right: 20px;">
+            <li>
+                <h1>
+                    Jackson Levitt's 235 Website
+                </h1>
+            </li>
+            <li class="selection">
+                <a href="https://images-na.ssl-images-amazon.com/images/I/41slQKJkNsL._SX331_BO1,204,203,200_.jpg" class="navtext">
+                    Contact Me
+                </a>
+            </li>
+            <li class="selection">
+                <a href="https://github.com/crazyjackel" class="navtext">
                     Github
-                </li>
-            </ul>
-        </nav>
+                </a>
+            </li>
+            <li class="selection">
+                <a href="#projects" class="navtext">
+                    Projects
+                </a>
+            </li>
+        </ul>
     </header>
     <main>
-        <div id="intro">
-            <div class="image-content-body">
-                <div class="image-content">
-                    <img src="MainImages/Portrait.png" alt="Jackson Levitt Portrait"
-                        style="height:100%;border-radius:50%;">
-                </div>
-                <div class="container">
-                    <div class="image-description">
-                        <ul id="intro-portrait-list">
-                            <li class="padded-list-item">
-                                Hobbies: Video Gaming, Walking, Cooking
-                            </li>
-                            <li class="padded-list-item">
-                                Areas of Study: Game Design and Development, Economics, Mathematics, Philosophy
-                            </li>
-                            <li class="padded-list-item">
-                                Programming/Scripting Languages: C#, Java, JavaScript, RScript
-                            </li>
-                            <li class="padded-list-item">
-                                Development Languages: CSS, HTML, Markdown
-                            </li>
-                            <li class="padded-list-item">
-                                Tools and Technologies: Blender, Github, Unity
-                            </li>
-                            <li class="padded-list-item">
-                                Libraries/Frameworks: BepInEx, Harmony
-                            </li>
-                        </ul>
+        <div id="portrait">
+            <div class="blackbar" style="animation-delay: 0s; animation-duration: 7s;"></div>
+            <div class="blackbar" style="animation-delay: 2s; animation-duration: 8s;"></div>
+            <div class="blackbar" style="animation-delay: 4s; animation-duration: 7s;"></div>
+            <div class="blackbar" style="animation-delay: 6s; animation-duration: 8s;"></div>
+            <div class="blackbar" style="animation-delay: 8s; animation-duration: 7s;"></div>
+            <div class="blackbar" style="animation-delay: 10s; animation-duration: 8s;"></div>
+            <div class="blackbar" style="animation-delay: 12s; animation-duration: 7s;"></div>
+            <div class="blackbar" style="animation-delay: 14s; animation-duration: 8s;"></div>
+            <img src="MainImages/Portrait.png" alt="Jackson Levitt" id="mainphoto" class="center">
+        </div>
+        <div id="biography">
+            <img src="MainImages/spell-book.svg" alt="Book" class="center" style="width:6em;padding-top:1em;">
+            <h1 class="section-title">
+                Biography
+            </h1>
+            <h3 style="text-align: center;">Game Designer, Developer, Modder, Modeler, Economist, Philosopher, Student
+            </h3>
+            <p class="textbox">Jackson Levitt is all of these: A Modern Jack-of-all-Trades. Jackson hopes to master each
+                one through
+                hardwork and determination in order to become the best game developer he can be. Working day by day and
+                improving, one days he hopes to be a master of all.</p>
+        </div>
+        <div id="projects">
+            <h1 class="section-title" style="padding-top: 1.5em;padding-bottom: 0.5em;">
+                Projects
+            </h1>
+            <div style="width:auto; margin:auto; text-align:center">
+                <div>
+                    <div style="display: inline-block;margin:2em">
+                        <a href=https://github.com/KittenAqua/MonsterTrainModdingAPI> 
+                            <img src="MainImages/MTAPI-v1.png" alt="Monster Train Modding API" class="projectimage">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="projects">
-
-        </div>
-        <div id="contact">
-
-        </div>
     </main>
-    <footer class="site-footer">
-        <nav class="footer-navigation">
-
-            </div>
-            <div class="site-credit">
-                <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a
-                        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            </div>
+    <footer>
+        <p style="text-align: center; background-color: #231f20;margin:0">
+            Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a
+                href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+        </p>
     </footer>
 </body>
 
