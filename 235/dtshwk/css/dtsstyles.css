@@ -1,0 +1,199 @@
+.wrapper{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mainimagefit{
+    width:100%;
+}
+#footer-wrapper{
+    background: url(../DesignToSpecAssets/Assets/trees.jpg) no-repeat;
+    background-size: 100% auto;
+    background-position-y: 50%;
+}
+header{
+    background-color: #686868;
+}
+#header_wrapper{
+    margin: 0px auto;
+    display: grid;
+    grid-template-areas: "Title Axe Empty Class Buffer" "Title Axe Empty Name Buffer";
+    grid-template-columns: 22rem 0.5rem 1fr 15rem 0.05fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+}
+#header_wrapper > h1{
+    grid-area: Title;
+    text-align: right;
+    margin-bottom: 0px;
+}
+#header_wrapper > img{
+    grid-area: Axe;
+    height: 2rem;
+    margin-left: 0.5rem;
+    filter: invert(100%);
+}
+#header_wrapper > p{
+    text-align: right;
+}
+#class{
+    grid-area: Class;
+    margin-top: auto;
+    margin-bottom: 1px;
+}
+#name{
+    grid-area: Name;
+    margin-top: 1px;
+}
+
+@font-face{
+    font-family: "Retro Computer";
+    src: url(../DesignToSpecAssets/Fonts/RetroComputer/retro_computer_personal_use.ttf)
+}
+@font-face{
+    font-family: "Dogica";
+    src: url(../DesignToSpecAssets/Fonts/Dogica/TTF/dogica.ttf)
+}
+h1, h2, h3{  
+    font-family: "Retro Computer";
+    color:white;
+}
+p, pre{
+    font-family: "Dogica";
+    font-size: 12px;
+    color:white;
+}
+.resource{
+    background-color: #35363D;
+}
+.resource{
+    display:flex;
+    padding: 3rem 0px;
+}
+#items{
+    display:grid;
+    grid-template-columns: [col1] 20rem [col2] 20rem [col3] 20rem [col4] 20rem;
+    gap: 1rem 1rem;
+    padding: 5% 0px;
+    background-color: #35363D;
+    justify-content: center;
+}
+
+.item > img{
+    height: 60%;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.item > h3{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 100;
+}
+.item{
+    border: 5px solid white;
+    background-color: #324E44;
+    width: 20rem;
+    height: 20rem;
+}
+.description{
+    background-color: #686868;
+    width:20rem;
+    height:20rem;
+    padding: 2rem;
+    color:white;
+}
+.resource{
+    clear: both;
+    display:grid;
+    grid-template-areas: "Buffer1 Description Image Buffer2";
+    gap: 1rem 1rem;
+    grid-template-columns: 1fr 35rem 35rem 1fr;
+}
+#resource-description
+{
+    grid-area: Description;
+    height: 35rem;
+    padding: 2rem;
+    margin:auto;
+    background-color: #686868;
+}
+#resource-image{
+    grid-area: Image;
+    height: 35rem;
+    width: 35rem;
+    margin: auto;
+    padding: 3rem;
+    background-color: #324E44;
+    border: 0.5rem solid white;
+}
+#resource-image > img{
+    width: 100%;
+    height: 100%;
+}
+#footer-wrapper{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 4rem;
+}
+#footer-wrapper > pre{
+    font-size: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.5vw;
+}
+#footer-left{
+    text-align: left;
+    margin-left: 0px;
+}
+#footer-right{
+    text-align: right;
+    margin-right: 0px;
+}
+@media screen and (max-width:1500px) {
+    #items{
+        grid-template-columns: 20rem 20rem;
+    }
+}
+@media screen and (max-width: 1320px){
+    .resource{
+        grid-template-areas: "Buffer1 Image Buffer2" "Buffer1 Description Buffer2";
+        grid-template-columns: 1fr 35rem 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+@media screen and (max-width:800px){
+    #items{
+        grid-template-columns: 20rem;
+    }
+    #header_wrapper{
+        grid-template-areas: "Empty Title Axe Buffer";
+        grid-template-columns: 0.5fr 20rem 2rem 0.5fr;
+        grid-template-rows: 1fr;
+    }
+    #header_wrapper > h1{
+        text-align: center;
+        grid-area: Title;
+        margin: 0.7rem 0px;
+    }
+    #header_wrapper > p{
+        display: none;
+    }
+    .resource{
+        grid-template-columns: 1fr 35fr 1fr;
+    }
+    #resource-image{
+        width: 100%;
+        height: fit-content;
+    }
+    #resource-description{
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+    }
+    #resource-description > p{
+        font-size: 1.7vw;
+    }
+}
