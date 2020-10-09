@@ -1,45 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/portfolioStyles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header id="header">
         <div id="header-wrapper">
             <nav id="main-nav">
                 <a class="sitename" href="index.html">Jackson Levitt</a>
-                <a class="aboutme-button" href="#aboutme">About Me</a>
-                <a class="resume" href="index.html">Resume</a>
+                <a class="aboutme-button" href="#about">About Me</a>
+                <a class="resume" href="./media/resume.pdf">Resume</a>
+                <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navtarget" aria-expanded="false">
+                    <i class="fa fa-bars"></i>
+                </button>
             </nav>
+            <div class="navbar-collapse collapse" id="navtarget" aria-expanded="false">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="./media/resume.pdf">Resume</a>
+                    </li>
+                </ul>
+            </div>
             <div class="image">
                 <img src="media/jackpicture.png" alt="Jackson Levitt">
             </div>
             <div class="text-caption">
                 <h1>Problems can be solved</h1>
                 <h2>It just takes the right person.</h2>
-                <a href="index.html">My Resume</a>
+                <a href="./media/resume.pdf">My
+                    Resume</a>
             </div>
         </div>
     </header>
     <main>
-        <section class="aboutme">
+        <section class="aboutme" id="about">
+            <h2>About Me</h2>
+            <p>My Name is Jackson Levitt. I am a student at Rochester Institute of Technology studying Game Design and Development and immersing myself in Economics. Since I was little, I always enjoyed solving problems, from puzzles to games to code. I
+                love the challenges of coding and love when it all comes together.</p>
         </section>
         <section class="portfolio">
-            <div class="portfolio-header"></div>
-            <div class="portfolio-block" id="trainworks">
+            <a href="ihttps://github.com/KittenAqua/MonsterTrainModdingAPI" class="portfolio-block" id="trainworks">
                 <div class="portfolio-block-title">
-                    <h4 class="portfolio-block-title-tool">C# Class Library Framework</h4>
-                    <h2 class="portfolio-block-title-name">Trainworks</h2>
-                    <h3 class="portfolio-block-title-details">Modding Framework for Monster Train</h3>
+                    <div class="portfolio-block-text-container">
+                        <h4 class="portfolio-block-title-tool">C# Class Library Framework</h4>
+                        <h2 class="portfolio-block-title-name">Trainworks</h2>
+                        <h3 class="portfolio-block-title-details">Modding Framework for Monster Train</h3>
+                    </div>
                 </div>
-                <div class="portfolio-block-tools"></div>
-            </div>
-            <div class="portfolio-block"></div>
+                <div class="portfolio-block-tools">
+                    <div class="portfolio-block-tools-container">
+                        <h4>Tools</h4>
+                        <ul class="portfolio-block-tools-list horizontal-list nostyle">
+                            <li>C#, </li>
+                            <li>BepInEx, </li>
+                            <li>HarmonyLib</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <!--<div class="portfolio-block"></div>-->
         </section>
     </main>
     <footer id="footer">
@@ -55,9 +84,10 @@
                     <a href="https://github.com/crazyjackel"><i class="fab fa-github-square"></i></a>
                 </li>
             </ul>
-            <a class="backtotopbutton"href="#header">Back To Top</a>
+            <a class="backtotopbutton" href="#header">Back To Top</a>
             <p class="copyright">Copyright @ 2020 Jackson Levitt All Rights</p>
         </div>
     </footer>
 </body>
+
 </html>

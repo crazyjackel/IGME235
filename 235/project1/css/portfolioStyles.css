@@ -1,3 +1,7 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -74,7 +78,6 @@ i {
     object-fit: contain;
     border-radius: 10rem;
     border: 5px solid white;
-    background:
 }
 
 #header-wrapper .text-caption {
@@ -126,6 +129,11 @@ i {
     margin-top: auto;
     margin-bottom: 3px;
     color: white;
+    font-family: 'Arial Narrow Bold', sans-serif;
+}
+
+#main-nav>.navbar-toggle {
+    display: none;
 }
 
 #main-nav>.sitename {
@@ -133,6 +141,7 @@ i {
     text-align: right;
     font-size: 2rem;
     color: white;
+    font-family: 'Arial Narrow Bold', sans-serif;
 }
 
 #main-nav>.resume {
@@ -141,14 +150,16 @@ i {
     margin-top: auto;
     margin-bottom: 3px;
     color: white;
+    font-family: 'Arial Narrow Bold', sans-serif;
 }
 
 .aboutme {
-    height: 20rem;
     background-color: #464646;
 }
 
 .portfolio-block {
+    border-radius: 0.5rem;
+    box-shadow: 2px 4px #464646;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -162,19 +173,206 @@ i {
     background-position: center;
     display: grid;
     grid-template-areas: "NameDetails Buffer4" "ToolDetails Buffer4";
+    grid-template-columns: 30rem 1fr;
 }
 
 #trainworks {
     background: url(../media/MT.jpg);
-    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: 110%;
     background-position-y: 30%;
     background-position-x: 30%;
 }
 
 #trainworks:hover {
-    background-size: 110%;
+    background: linear-gradient(0.25turn, rgba(255, 0, 0, 0.1), rgba(0, 47, 255, 0.1)), url(../media/MT.jpg);
+    background-size: 120%;
+    background-position-y: 30%;
+    background-position-x: 30%;
 }
 
 .portfolio-block:hover {
     background-size: 110%;
+}
+
+.portfolio-block .portfolio-block-title .portfolio-block-text-container {
+    margin-top: 3%;
+    margin-left: 3%;
+    background-color: #00000060;
+    border-radius: 0px 0.2rem 1rem 0.2rem;
+    padding: 0.5rem;
+}
+
+.portfolio-block .portfolio-block-title .portfolio-block-text-container h4 {
+    font-size: 1.25rem;
+    color: lightgray;
+}
+
+.portfolio-block .portfolio-block-title .portfolio-block-text-container h2 {
+    font-size: 2.5rem;
+    text-decoration: underline white;
+}
+
+.portfolio-block .portfolio-block-title .portfolio-block-text-container h3 {
+    font-size: 1.5rem;
+}
+
+.portfolio-block .portfolio-block-tools {
+    grid-area: ToolDetails;
+}
+
+.portfolio-block .portfolio-block-tools .portfolio-block-tools-container {
+    background-color: #00000060;
+    margin-left: 3%;
+    margin-right: auto;
+    margin-top: 15%;
+    margin-bottom: 3%;
+    padding: 0.5rem;
+    width: 12.5rem;
+    color: white;
+    border-radius: 0.2rem 1rem 0.2rem 0px;
+}
+
+.portfolio-block-tools-container h4 {
+    text-decoration: underline solid white;
+}
+
+.portfolio-block .portfolio-block-title {
+    grid-area: NameDetails;
+}
+
+.portfolio-block-title h1,
+h2,
+h3,
+h4 {
+    color: white;
+    -webkit-text-stroke: 0.01em black;
+    margin-left: 0.5rem;
+}
+
+.portfolio-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.aboutme h2 {
+    margin: 0px;
+    padding: 0.5rem;
+    padding-top: 1rem;
+    text-align: center;
+    text-decoration: underline solid white;
+}
+
+.aboutme p {
+    text-align: center;
+    padding: 0.5rem max(5rem, 10%);
+    padding-bottom: 2rem;
+    color: white;
+}
+
+#header-wrapper>.navbar-collapse>ul>li {
+    background-color: #464646;
+    margin-left: auto;
+    width: 8rem;
+    text-align: center;
+    position: relative;
+    display: none;
+}
+
+#header-wrapper>.navbar-collapse>ul>li>a {
+    color: white;
+    text-decoration: underline;
+    font-family: 'Arial Narrow Bold', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+@media screen and (max-width:870px) {
+    #header-wrapper {
+        grid-template-areas: "Navigation" "Image" "Text";
+        grid-template-columns: 1fr;
+        grid-template-rows: 3rem 1fr 17rem;
+        background: rgb(146, 171, 179);
+        background: radial-gradient(circle, rgba(146, 171, 179, 1) 12%, rgba(72, 103, 105, 1) 78%);
+    }
+    #header-wrapper .text-caption {
+        margin-top: 0px;
+        text-align: center;
+    }
+    #header-wrapper .image img {
+        width: max(20rem, 50vw);
+        height: max(20rem, 50vw);
+        border-radius: max(10rem, 25vw);
+    }
+}
+
+@media screen and (max-width:600px) {
+    #header-wrapper {
+        grid-template-areas: "Navigation" "DropDown" "Image" "Text";
+        grid-template-columns: 1fr;
+        grid-template-rows: 3rem auto 1fr 17rem;
+    }
+    #main-nav {
+        grid-template-areas: "Name Buffer3 DropDownButton";
+        grid-template-columns: 14rem 1fr 8rem;
+    }
+    #header-wrapper>.navbar-collapse>ul>li {
+        display: block;
+    }
+    #main-nav .navbar-toggle {
+        display: block;
+        grid-area: DropDownButton;
+        background-color: #00000000;
+        border: none;
+        margin: 5px;
+        width: 4rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+    }
+    #main-nav .aboutme-button,
+    .resume {
+        display: none;
+    }
+    #trainworks {
+        background-size: 150%;
+        background-position: center;
+    }
+    #trainworks:hover {
+        background-size: 160%;
+        background-position: center;
+    }
+    .portfolio-block {
+        grid-template-areas: "NameDetails" "ToolDetails";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+    }
+    .portfolio-block .portfolio-block-title .portfolio-block-text-container {
+        margin: 3%;
+        text-align: center;
+        justify-self: center;
+    }
+    .portfolio-block .portfolio-block-title .portfolio-block-text-container h4 {
+        font-size: 1rem;
+        margin: 0px;
+    }
+    .portfolio-block .portfolio-block-title .portfolio-block-text-container h3 {
+        font-size: 1.5rem;
+        margin: 0px;
+    }
+    .portfolio-block .portfolio-block-title .portfolio-block-text-container h2 {
+        font-size: 2rem;
+        margin: 0px;
+    }
 }
