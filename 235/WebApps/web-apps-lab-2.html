@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>DOM-3</title>
+    <style>
+        body {
+            border: 1px solid gray;
+        }
+        
+        p b {
+            transform: rotate(20deg)
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Page</h1>
+    <h2>Info</h2>
+    <h2>Pictures</h2>
+    <h2>More Info</h2>
+    <p>Blah <b>Blah</b> Blah</p>
+    <p>Blah <b>Blah</b> Blah</p>
+    <p id="lastParagraph">Blah <b>Blah</b> Blah</p>
+    <footer>Copyright &copy; <b>20XX</b></footer>
+    <script>
+        "use strict";
+
+        // add your own code here.
+        var h1s = document.getElementsByTagName("h1");
+        h1s[0].innerHTML = "My UFO Page";
+        var h2s = document.getElementsByTagName("h2");
+        h2s[0].innerHTML = "My UFO Info";
+        h2s[1].innerHTML = "My UFO Pictures";
+        h2s[2].innerHTML = "";
+        var body = document.body;
+        let bodyStyle = body.style;
+        bodyStyle.fontFamily = "sans-serif";
+        bodyStyle.color = "#aa5454";
+        var ps = document.getElementsByTagName("p");
+        ps[0].innerHTML = "Report your UFO sightings here: <a href='http://www.nuforc.org'>http://www.nuforc.org</a>";
+        ps[0].style.color = "green";
+        ps[0].style.fontWeight = "bold";
+        ps[0].style.fontSize = "2em"
+        ps[0].style.textTransform = "uppercase";
+        ps[0].style.textShadow = "3px 2px #A44";
+        ps[1].innerHTML = "";
+        ps[2].innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/d/df/PurportedUFO2.jpg' alt='UFO'>"
+        var foot = document.getElementsByTagName("footer");
+        foot[0].innerHTML = "Copyright @ Jackson Levitt 2020";
+    </script>
+</body>
+
+</html>
