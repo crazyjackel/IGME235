@@ -16,8 +16,13 @@ ul.horizontal-list li {
     display: inline-block;
 }
 
+ul.horizontal-list>li>a>i:hover {
+    color: rgb(195, 240, 195);
+}
+
 #footer {
     background-color: #464646;
+    border-top: solid rgb(195, 240, 195) 0.5rem;
 }
 
 #footer-wrapper {
@@ -48,6 +53,7 @@ i {
 #footer-wrapper .backtotopbutton:hover {
     text-decoration: underline;
     font-weight: bold;
+    color: rgb(195, 240, 195);
 }
 
 #footer-wrapper .copyright {
@@ -60,9 +66,9 @@ i {
     display: grid;
     grid-template-areas: "Navigation Navigation" "Image Text";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3rem 1fr;
+    grid-template-rows: 3.5rem 1fr;
     background: rgb(146, 171, 179);
-    background: radial-gradient(circle, rgba(146, 171, 179, 1) 12%, rgba(72, 103, 105, 1) 78%);
+    background: radial-gradient(at 85% 50%, rgba(146, 171, 179, 1) 12%, rgba(72, 103, 105, 1) 78%);
 }
 
 #header-wrapper .image {
@@ -73,11 +79,12 @@ i {
 }
 
 .image img {
-    width: 20rem;
-    height: 20rem;
+    width: 40rem;
+    height: 40rem;
     object-fit: contain;
-    border-radius: 10rem;
+    border-radius: 20rem;
     border: 5px solid white;
+    background: radial-gradient(at 20% 50%, rgba(150, 179, 146, 0.1) 10%, rgba(78, 105, 72, 0.1) 90%);
 }
 
 #header-wrapper .text-caption {
@@ -112,7 +119,8 @@ i {
     font-weight: bold;
     padding: 1px 5px;
     border: 4px solid white;
-    background-color: #FFFFFF40;
+    background-color: rgb(195, 240, 195, 0.5);
+    ;
 }
 
 #main-nav {
@@ -121,6 +129,7 @@ i {
     display: grid;
     grid-template-areas: "Name Buffer3 AboutMe Resume";
     grid-template-columns: 14rem 1fr 8rem 8rem;
+    border-bottom: solid rgb(195, 240, 195) 0.5rem;
 }
 
 #main-nav>.aboutme-button {
@@ -132,8 +141,16 @@ i {
     font-family: 'Arial Narrow Bold', sans-serif;
 }
 
+#main-nav>.aboutme-button:hover {
+    color: rgb(195, 240, 195);
+}
+
 #main-nav>.navbar-toggle {
     display: none;
+}
+
+#main-nav>.navbar-toggle>i:hover {
+    color: rgb(195, 240, 195);
 }
 
 #main-nav>.sitename {
@@ -153,8 +170,16 @@ i {
     font-family: 'Arial Narrow Bold', sans-serif;
 }
 
+#main-nav>.resume:hover {
+    color: rgb(195, 240, 195);
+}
+
 .aboutme {
     background-color: #464646;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: solid rgb(195, 240, 195) 0.5rem;
+    border-top: solid rgb(195, 240, 195) 0.5rem;
 }
 
 .portfolio-block {
@@ -295,13 +320,13 @@ h6 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-@media screen and (max-width:870px) {
+@media screen and (max-width:1030px) {
     #header-wrapper {
         grid-template-areas: "Navigation" "Image" "Text";
         grid-template-columns: 1fr;
-        grid-template-rows: 3rem 1fr 17rem;
+        grid-template-rows: 3.5rem 1fr 17rem;
         background: rgb(146, 171, 179);
-        background: radial-gradient(circle, rgba(146, 171, 179, 1) 12%, rgba(72, 103, 105, 1) 78%);
+        background: radial-gradient(at 55% 75%, rgba(146, 171, 179, 1) 12%, rgba(72, 103, 105, 1) 78%);
     }
     #header-wrapper .text-caption {
         margin-top: 0px;
@@ -318,7 +343,7 @@ h6 {
     #header-wrapper {
         grid-template-areas: "Navigation" "DropDown" "Image" "Text";
         grid-template-columns: 1fr;
-        grid-template-rows: 3rem auto 1fr 17rem;
+        grid-template-rows: 3.5rem auto 1fr 17rem;
     }
     #main-nav {
         grid-template-areas: "Name Buffer3 DropDownButton";
@@ -326,6 +351,9 @@ h6 {
     }
     #header-wrapper>.navbar-collapse>ul>li {
         display: block;
+    }
+    #header-wrapper>.navbar-collapse>ul>li>a:hover {
+        color: rgb(195, 240, 195);
     }
     #main-nav .navbar-toggle {
         display: block;
