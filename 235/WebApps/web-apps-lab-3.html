@@ -45,11 +45,33 @@
         }
 
         var colorsList = document.getElementById("colorsList");
+        /*
+        for(i = 0; i < colors.length; i++){
+v           ar li = document.createElement("li");
+            li.innerHTML = colors[i];
+            colorsList.appendChild(li);
+        }
+        */
         colors.forEach(element => {
             var li = document.createElement("li");
             li.innerHTML = element;
             colorsList.appendChild(li);
         });
+        var foodsList = document.getElementById("foodsList");
+        for (var food of foods) {
+            var li = document.createElement("li");
+            li.innerHTML = food;
+            foodsList.appendChild(li);
+        }
+        var linksList = document.getElementById("linksList")
+        for (var webpage in links) {
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.href = links[webpage];
+            a.innerHTML = webpage;
+            li.append(a);
+            linksList.appendChild(li);
+        }
     </script>
 </body>
 
