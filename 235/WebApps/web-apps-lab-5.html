@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Web Apps-6</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        
+        #colorform {
+            background-color: #dfecdf;
+            color: #111;
+            padding: 1em;
+            width: 400px;
+        }
+        
+        #colorform p#info {
+            background-color: white;
+            color: black;
+            width: 300px;
+            height: 100px;
+            padding: .5em;
+        }
+        
+        #colorform legend {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="colorform">
+        <legend>Choose your favorite color!</legend>
+        <p><input type="checkbox" name="colorGroup" id="colorGroup" value="red" /> Red</p>
+        <p><input type="checkbox" name="colorGroup" id="colorGroup" value="green" /> Green</p>
+        <p><input type="checkbox" name="colorGroup" id="colorGroup" value="blue" /> Blue</p>
+        <p><button id="colorButton" type="button">Submit</button></p>
+        <p id="info"></p>
+    </div>
+
+    <script>
+        /* Write your code here! */
+        let button = document.getElementById("colorButton");
+        let radioButtons = document.querySelectorAll("input");
+        let infoTextBox = document.getElementById("info");
+        let values = new Array();
+
+
+        button.addEventListener("click", doClickColorButton);
+        radioButtons.forEach(button => button.addEventListener("change", updateCurrentlySelectedButtons));
+
+        function doClickColorButton() {
+            let string = "You have Selected: "
+            for (color of values) {
+                string += color + " ";
+            }
+            infoTextBox.innerHTML = string;
+        }
+
+        function updateCurrentlySelectedButtons(evt) {
+            let color = evt.target.value;
+            let value = values.indexOf(color);
+            if (value == -1) {
+                values.push(color);
+            } else {
+                values.splice(value, 1);
+            }
+        }
+    </script>
+</body>
+
+</html>
