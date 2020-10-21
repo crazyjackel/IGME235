@@ -35,9 +35,9 @@
 
     <div id="colorform">
         <legend>Choose your favorite color!</legend>
-        <p><input type="radio" name="colorGroup" id="colorGroup" value="red" /> Red</p>
-        <p><input type="radio" name="colorGroup" id="colorGroup" value="green" /> Green</p>
-        <p><input type="radio" name="colorGroup" id="colorGroup" value="blue" /> Blue</p>
+        <p><input type="checkbox" name="colorGroup" id="colorGroup" value="red" /> Red</p>
+        <p><input type="checkbox" name="colorGroup" id="colorGroup" value="green" /> Green</p>
+        <p><input type="checkbox" name="colorGroup" id="colorGroup" value="blue" /> Blue</p>
         <p><button id="colorButton" type="button">Submit</button></p>
         <p id="info"></p>
     </div>
@@ -47,19 +47,28 @@
         let button = document.getElementById("colorButton");
         let radioButtons = document.querySelectorAll("input");
         let infoTextBox = document.getElementById("info");
-        let color = undefined;
+        let values = new Array();
+
 
         button.addEventListener("click", doClickColorButton);
         radioButtons.forEach(button => button.addEventListener("change", updateCurrentlySelectedButtons));
 
         function doClickColorButton() {
             let string = "You have Selected: "
-            string += color;
+            for (color of values) {
+                string += color + " ";
+            }
             infoTextBox.innerHTML = string;
         }
 
         function updateCurrentlySelectedButtons(evt) {
-            color = evt.target.value;
+            let color = evt.target.value;
+            let value = values.indexOf(color);
+            if (value == -1) {
+                values.push(color);
+            } else {
+                values.splice(value, 1);
+            }
         }
     </script>
 </body>
