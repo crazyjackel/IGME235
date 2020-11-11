@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Sealed Pool Generator</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Everything Sealed</h1>
+    </header>
+
+    <div class="widgets grid twocolumn">
+        <div class="widget-grid widget-grid-custom">
+            <button type="button" id="generate" class="green">Generate Pool</button>
+            <button type="button" id="export" class="green">Export Pool</button>
+        </div>
+        <div class="options">
+            <ul>
+                <li>
+                    <input type="checkbox" id="funny" name="funny">
+                    <label for="funny">Generate Silver-Bordered Cards</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="conspiracy" name="conspiracy">
+                    <label for="conspiracy">Generate Conspiracy Cards</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="banned" name="banned">
+                    <label for="banned">Generate Banned Cards</label>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div id="spinner"></div>
+
+    <h2>Results</h2>
+    <hr>
+    <div id="commander">
+    </div>
+    <div id="content">
+    </div>
+</body>
+
+</html>
