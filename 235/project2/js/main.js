@@ -7,8 +7,6 @@ window.onload = (e) => {
     document.querySelector("#banned").onclick = ToggleGenerateBanned;
 };
 
-
-
 // 2
 let obj = undefined;
 let numToGenerate = 140;
@@ -24,19 +22,21 @@ let generateBanned = false;
 
 let cards = ["1 The Prismatic Piper"];
 
+//Toggles Internal Bool: generateFunny
 function ToggleGenerateFunny() {
     generatefunny = !generatefunny;
 }
-
+//Toggles Internal Bool: generateConspiracy
 function ToggleGenerateConspiracy() {
     generateConspiracy = !generateConspiracy;
 }
-
+//Toggles Internal Bool: generateBanned
 function ToggleGenerateBanned() {
     generateBanned = !generateBanned;
 }
-
+//Exports and Download from cards array in specificied format
 function ExportPool() {
+    //Check that cards have been generated and not loading, then download to file
     if (generatedSomething && !loading) {
         let text = "";
         for (let card of cards) {
@@ -47,19 +47,23 @@ function ExportPool() {
     }
 }
 
-// 3
+//Called on Search Button being clicked
 function searchButtonClicked() {
+    //If Loading do not allowed interruption
     if (!loading) {
         loading = true;
         generatedSomething = true;
-        console.log("searchButtonClicked() called");
+
+        //Set up Array
         cards = ["1 The Prismatic Piper"];
 
-        document.querySelector("#spinner").innerHTML = "<img src='images/spinner.gif'></img>"
+        //Clear Selectors and obj
+        document.querySelector("#spinner").innerHTML = "<img src='images/spinner2.gif'></img>"
         document.querySelector("#commander").innerHTML = "";
         document.querySelector("#content").innerHTML = "";
         obj = undefined;
 
+        //Build API request
         const MTG_Commander = "https://api.scryfall.com/cards/random?q=is%3Acommander";
 
         let dataUrl = MTG_Commander;
@@ -73,7 +77,7 @@ function searchButtonClicked() {
         getData(dataUrl, CommanderLoaded);
     }
 }
-
+//Do XMLHttpRequest with Callback Function onload
 function getData(url, callback) {
     let xhr = new XMLHttpRequest();
 
@@ -83,7 +87,7 @@ function getData(url, callback) {
     xhr.open("GET", url);
     xhr.send();
 }
-
+//Downloads to a file by creating and clicking, then deleting an element
 function download(filename, text) {
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -96,10 +100,11 @@ function download(filename, text) {
 
     document.body.removeChild(element);
 }
-
+//Function called when 'Commander is loaded', used for future queries
 function CommanderLoaded(e) {
     let xhr = e.target;
     obj = JSON.parse(xhr.responseText);
+    //Log fail states
     if (obj == undefined) {
         document.querySelector("#spinner").innerHTML = "<b>Commander is undefined</b>";
         return;
@@ -109,16 +114,19 @@ function CommanderLoaded(e) {
         return;
     }
 
+    //Grab an Image to use
     let image_to_use = obj.image_uris.normal;
     if (image_to_use == undefined) {
         image_to_use == obj.image_uris.small;
     }
 
+    //Setup web content
     let content = document.querySelector("#commander");
     content.innerHTML += "<div><p>" + obj.name + "</p><img src=" + image_to_use + " alt=" + obj.name + "</img></div>";
 
     cards.push("1 " + obj.name);
-    //Commander Special Stuff
+
+    //Generate Future Queries from Commander information
     let colorIdentity = obj.color_identity;
     color = "";
     if (colorIdentity != undefined && colorIdentity.length >= 1) {
@@ -138,28 +146,33 @@ function CommanderLoaded(e) {
     if (!generateBanned) {
         url += "%20format%3Acommander";
     }
-    console.log();
+    //Add Prismatic
     getData(PrismaticURL, CardLoaded);
-
+    //Get Data for load
     for (let i = 0; i < numToGenerate - 1; i++) {
         getData(url, CardLoaded);
     }
+    //Get Last CardLoaded Last (This isn't always accurate due to asynchronous requests, but guarentees something special for this specific request)
     getData(url, LastCardLoaded)
 }
-
+//Loads the Last card
 function LastCardLoaded(e) {
+    //Typical card loading
     CardLoaded(e);
+    //Resets specific page information
     loading = false;
     document.querySelector("#spinner").innerHTML = "";
 }
-
+//Loads a card
 function CardLoaded(e) {
     let xhr = e.target;
     obj = JSON.parse(xhr.responseText);
+    //Log failstates
     if (obj == undefined) {
         document.querySelector("#status").innerHTML = "<b>No results found for'" + displayTerm + "'</b>";
         return;
     }
+    //Regenerate on failure
     if (obj.image_uris == undefined) {
         getData(randomURL + "?q=id<%3D" + color, CardLoaded);
         return;
@@ -170,6 +183,7 @@ function CardLoaded(e) {
         image_to_use == obj.image_uris.small;
     }
 
+    //Update Content, positioning in proper area
     let content = document.querySelector("#content");
     if ((obj.type_line.includes("Legendary") && obj.type_line.includes("Creature")) || (obj.oracle_text != undefined && obj.oracle_text.includes("can be your commander."))) {
         content = document.querySelector("#commander");
@@ -178,7 +192,7 @@ function CardLoaded(e) {
     content.innerHTML += "<div><p>" + obj.name + "</p><img src=" + image_to_use + " alt=" + obj.name + "</img></div>";
     cards.push("1 " + obj.name);
 }
-
+//Data Error function to resolve issue with XMLHTTPREQUEST
 function dataError(e) {
     console.log("error has occured");
 }

@@ -1,5 +1,33 @@
+@font-face {
+    font-family: Bel;
+    src: url(../fonts/Beleren2016-Bold.woff);
+}
+
 * {
-    font-family: verdana, tahoma, sans-serif;
+    font-family: beleren, Bel, verdana, tahoma, sans-serif;
+}
+
+.black-bar {
+    color: black;
+    background-color: black;
+    height: 2rem;
+}
+
+a {
+    font-size: 1.05em;
+    color: rgb(175, 20, 149);
+    text-decoration: none;
+}
+
+hr {
+    border-style: dashed;
+    border-width: 3px;
+    width: 95%;
+}
+
+body {
+    background-color: #FdFdFf;
+    margin: 0;
 }
 
 header {
@@ -8,9 +36,9 @@ header {
 
 header h1 {
     margin: 0;
-    color: blue;
+    color: rgb(175, 20, 149);
     text-align: center;
-    font-size: 100px;
+    font-size: max(4rem, 8vw);
     padding-top: 35px;
 }
 
@@ -23,10 +51,10 @@ h2 {
 }
 
 #spinner {
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+    position: fixed;
+    margin: 0px;
+    top: -100px;
+    right: -100px;
     width: 256px;
 }
 
@@ -130,20 +158,20 @@ button {
     cursor: pointer;
     border-style: solid;
     border-width: 1px;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 10px 18px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .6);
     font-size: 24pt;
     font-weight: bold;
     color: #fff;
     text-shadow: 0 1px 3px rgba(0, 0, 0, .4);
-    font-family: sans-serif;
+    font-family: beleren, Bel, sans-serif;
     text-decoration: none;
 }
 
 button.green {
-    border-color: #00bbc8;
-    background: #00bbc8;
+    border-color: #ffffff;
+    background: rgb(175, 20, 149);
     background: linear-gradient(top, #8fc800 0%, #438c00 100%);
 }
 
@@ -170,6 +198,7 @@ button:focus {
     margin-right: auto;
     border: 1px solid black;
     width: 60%;
+    background-color: white;
 }
 
 .options>ul {
@@ -178,10 +207,12 @@ button:focus {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+    background-color: white;
 }
 
 .options>ul>li {
     display: inline-block;
+    background-color: white;
 }
 
 .grid {
@@ -207,4 +238,11 @@ button:focus {
 
 #status>img {
     height: 100%;
+}
+
+#intro {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
