@@ -26,9 +26,9 @@ class Upgrade {
         } else {
             this.owned = 0;
         }
-        this.cost = baseCost;
         this.returnPerOne = baseReturn;
         this.costMultiplier = costMultiplier;
+        this.cost = baseCost * Math.pow(this.costMultiplier, this.owned);
         this.spriteLink = href;
         this.buyable = false;
         this.Text = [];
