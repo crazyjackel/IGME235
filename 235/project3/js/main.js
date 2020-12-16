@@ -11,6 +11,21 @@ document.body.appendChild(app.view);
 const sceneWidth = app.view.width;
 const sceneHeight = app.view.height;
 
+//http://soundbible.com/1705-Click2.html
+let clickSound = new Howl({
+    src: ['sounds/click.mp3']
+});
+//http://soundbible.com/893-Button-Click.html
+let clickSound2 = new Howl({
+    src: ['sounds/click2.mp3']
+});
+//https://www.youtube.com/watch?v=XxoSlBp6skM
+let sound = new Howl({
+    src: ['sounds/background.mp3']
+});
+sound.loop = true;
+sound.play();
+
 // pre-load the images
 app.loader.
 add([
@@ -24,7 +39,9 @@ add([
     "images/Nanomachines.png",
     "images/Mountain.png",
     "images/Valhalla.png",
-    "images/Ibex.png"
+    "images/Ibex.png",
+    "images/Mute.png",
+    "images/Sound.png"
 ]);
 app.loader.onProgress.add(e => { console.log(`progress=${e.progress}`) });
 app.loader.onComplete.add(setup);
@@ -33,8 +50,18 @@ app.loader.load();
 let stage;
 
 let score = 0;
+let scorePerSecond = 0;
+let totalOwned = 0;
+let totalScore = 0;
+let timePlayed = 0;
 
 let scene, clickArea, upgradeArea, statsArea, scoreLabel, Title, Ibex;
+
+let totalOwnedLabel, perSecondLabel, totalScoreLabel, timePlayedLabel, instructions;
+
+let muteButton, muteSymbol;
+
+let muted = false;
 
 const frameForSaveEvent = 240;
 let frameCounter = 0;
@@ -89,6 +116,18 @@ function setup() {
     statsArea = new BorderedRectangle(5, 350, 780, 100, 5);
     scene.addChild(statsArea);
 
+    muteButton = new BorderedRectangle(300,180,175,80,5);
+    muteButton.interactive = true;
+    muteButton.on('click',toggleMute);
+    muted = false;
+
+    muteSymbol = new PIXI.Sprite(app.loader.resources["images/Sound.png"].texture);
+    muteSymbol.x = 360;
+    muteSymbol.y = 185;
+    muteButton.addChild(muteSymbol);
+
+    statsArea.addChild(muteButton);
+
     SetupScene();
     SetupUpgrades();
 
@@ -96,11 +135,31 @@ function setup() {
         score = Number.parseInt(localStorage.getItem("score"));
     }
 
+    if(localStorage.getItem("totalScore")){
+        totalScore = Number.parseInt(localStorage.getItem("totalScore"));
+    }
+
+    if(localStorage.getItem("timePlayed")){
+        timePlayed = Number.parseInt(localStorage.getItem("timePlayed"));
+    }
+
     SetupHorns();
     UpdateHorns();
-
+    CalcScorePerSecond();
+    CalcTotalOwned();
 
     app.ticker.add(gameLoop);
+}
+function toggleMute(){
+    if(muted){
+        muted = false;
+        muteSymbol.texture = app.loader.resources["images/Sound.png"].texture;
+        sound.play();
+    }else{
+        muted = true;
+        muteSymbol.texture = app.loader.resources["images/Mute.png"].texture;
+        sound.pause();
+    }
 }
 
 function SetupScene() {
@@ -109,6 +168,36 @@ function SetupScene() {
     scoreLabel.x = 600;
     scoreLabel.y = 5;
     scene.addChild(scoreLabel);
+
+    perSecondLabel = new PIXI.Text(`Score Per Second: ${Format(Math.trunc(scorePerSecond),2)}`);
+    perSecondLabel.style = TextStyleDefault;
+    perSecondLabel.x = 10;
+    perSecondLabel.y = 350;
+    statsArea.addChild(perSecondLabel);
+
+    totalOwnedLabel = new PIXI.Text(`Total Owned: ${totalOwned}`);
+    totalOwnedLabel.style = TextStyleDefault;
+    totalOwnedLabel.x = 10;
+    totalOwnedLabel.y = 375;
+    statsArea.addChild(totalOwnedLabel);
+
+    totalScoreLabel = new PIXI.Text(`Total Score: ${Format(Math.trunc(totalScore),2)}`);
+    totalScoreLabel.style = TextStyleDefault;
+    totalScoreLabel.x = 10;
+    totalScoreLabel.y = 400;
+    statsArea.addChild(totalScoreLabel);
+
+    timePlayedLabel = new PIXI.Text(`Time Played: ${Math.trunc(timePlayed)} Sec`);
+    timePlayedLabel.style = TextStyleDefault;
+    timePlayedLabel.x = 10;
+    timePlayedLabel.y = 425;
+    statsArea.addChild(timePlayedLabel);
+
+    instructions = new PIXI.Text(`Click on the Ibex to earn points.\nBuy Upgrades to earn more.\nChill and Earn as much as possible.`)
+    instructions.style = TextStyleDefault;
+    instructions.x = 280;
+    instructions.y = 365;
+    statsArea.addChild(instructions);
 
     Title = new PIXI.Text("Ibex IDLE");
     Title.style = TitleText;
@@ -193,6 +282,7 @@ function IncrementScore() {
 
 function ResetGame() {
     UpdateScore(-score);
+    totalScore = 0;
     for (let upgrade of upgrades) {
         upgrade.SetOwned(0);
     }
@@ -204,14 +294,45 @@ function UpdateScore(val = 0) {
 
     if (val < 0) {
         localStorage.setItem("score", score.toFixed(2));
+    }else{
+        totalScore += val;
+        totalScoreLabel.text = `Total Score: ${Format(Math.trunc(totalScore),2)}`;
+        localStorage.setItem("totalScore", totalScore.toFixed(2));
     }
 
     UpdateUpgrades();
 }
 
 function BuyUpgrade(Upgrade) {
-    Upgrade.BuyOne(() => UpdateScore(-Upgrade.cost));
+    if(!muted){
+        clickSound.play();
+    }
+    Upgrade.BuyOne(() => {
+        UpdateScore(-Upgrade.cost);
+        totalOwned++;
+        if(!muted){
+            clickSound2.play();
+        }
+    });
     UpdateUpgrades();
+    totalOwnedLabel.text = `Total Owned: ${totalOwned}`;
+    CalcScorePerSecond();
+}
+
+function CalcScorePerSecond(){
+    let scorePerSecond = 0;
+    for (let upgrade of upgrades) {
+        scorePerSecond += upgrade.GetReturn();
+    }
+    perSecondLabel.text = `Score Per Second: ${Format(Math.trunc(scorePerSecond),2)}`;
+}
+
+function CalcTotalOwned(){
+    totalOwned = 0;
+    for(let upgrade of upgrades){
+        totalOwned += upgrade.owned;
+    }
+    totalOwnedLabel.text = `Total Owned: ${totalOwned}`;
 }
 
 function UpdateUpgrades() {
@@ -242,4 +363,8 @@ function gameLoop() {
     }
 
     UpdateHorns();
+
+    timePlayed += dt;
+    timePlayedLabel.text = `Time Played: ${FormatTime(Math.trunc(timePlayed))}`;
+    localStorage.setItem("timePlayed", timePlayed.toFixed(2));
 }

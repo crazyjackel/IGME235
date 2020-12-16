@@ -127,8 +127,8 @@ i {
     grid-area: Navigation;
     background-color: #464646;
     display: grid;
-    grid-template-areas: "Name Buffer3 AboutMe Resume";
-    grid-template-columns: 14rem 1fr 8rem 8rem;
+    grid-template-areas: "Name Buffer3 AboutMe Portfolio Resume";
+    grid-template-columns: 14rem 1fr 8rem 6.75rem 8rem;
     border-bottom: solid rgb(195, 240, 195) 0.5rem;
 }
 
@@ -139,6 +139,18 @@ i {
     margin-bottom: 3px;
     color: white;
     font-family: 'Arial Narrow Bold', sans-serif;
+}
+#main-nav > .portfolio-button{
+    grid-area: Portfolio;
+    font-size: 1.5rem;
+    margin-top: auto;
+    margin-bottom: 3px;
+    color: white;
+    font-family: 'Arial Narrow Bold', sans-serif;
+}
+
+#main-nav>.portfolio-button:hover {
+    color: rgb(195, 240, 195);
 }
 
 #main-nav>.aboutme-button:hover {
@@ -197,8 +209,9 @@ i {
     background-size: 100% 20rem;
     background-position: center;
     display: grid;
-    grid-template-areas: "NameDetails Buffer4" "ToolDetails Buffer4";
-    grid-template-columns: 30rem 1fr;
+    grid-template-areas: "NameDetails Buffer4 Description" "ToolDetails Buffer4 Description";
+    grid-template-columns: 30rem 1fr 30rem;
+    grid-template-rows: 1fr 6rem;
 }
 
 #trainworks {
@@ -216,6 +229,40 @@ i {
     background-position-x: 30%;
 }
 
+#IbexIdle{
+    background: url(../media/ibexScreenshot.png);
+    filter: brightness(95%);
+    background-repeat: no-repeat;
+    background-size: 110%;
+    background-position-y: 50%;
+    background-position-x: 50%;
+}
+
+#IbexIdle:hover {
+    background: linear-gradient(0.25turn, rgba(66, 66, 66, 0.1), rgba(0, 95, 150, 0.1)), url(../media/ibexScreenshot.png);
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: 50%;
+}
+
+#sealedEverything{
+    background: url(../media/everythingSealedScreenshot.png);
+    filter: brightness(95%);
+    background-repeat: repeat;
+    background-size: 110%;
+    background-position-y: 50%;
+    background-position-x: 50%;
+}
+
+#sealedEverything:hover {
+    background: linear-gradient(0.25turn, rgba(66, 66, 66, 0.1), rgba(0, 95, 150, 0.1)), url(../media/everythingSealedScreenshot.png);
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: 50%;
+}
+
 .portfolio-block:hover {
     background-size: 110%;
 }
@@ -223,7 +270,7 @@ i {
 .portfolio-block .portfolio-block-title .portfolio-block-text-container {
     margin-top: 3%;
     margin-left: 3%;
-    background-color: #00000060;
+    background-color: #131313b0;
     border-radius: 0px 0.2rem 1rem 0.2rem;
     padding: 0.5rem;
 }
@@ -246,17 +293,36 @@ i {
     grid-area: ToolDetails;
 }
 
+
 .portfolio-block .portfolio-block-tools .portfolio-block-tools-container {
-    background-color: #00000060;
+    background-color: #131313b0;
     margin-left: 3%;
     margin-right: auto;
-    margin-top: 15%;
     margin-bottom: 3%;
     padding: 0.5rem;
-    width: 12.5rem;
+    width: 14rem;
     color: white;
     border-radius: 0.2rem 1rem 0.2rem 0px;
 }
+.portfolio-block .portfolio-block-description{
+    grid-area: Description;
+}
+
+.portfolio-block .portfolio-block-description .description-padding{
+    width: 80%;
+    height: 95%;
+    padding: 3%;
+    border-radius: 0px 0.2rem 1rem 0.2rem;
+    margin-left: auto;
+    margin-right: 3%;
+    margin-top: 1.6%;
+    margin-bottom: 1.5%;
+    background-color: #131313b0;
+    color: white;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-size: 100%;
+}
+
 
 .portfolio-block-tools-container h4 {
     text-decoration: underline solid white;
@@ -338,7 +404,63 @@ h6 {
     }
 }
 
+@media screen and (max-width:1080px){
+    #trainworks {
+        background-size: 190%;
+        background-position: center;
+    }
+    #trainworks:hover {
+        background-size: 200%;
+        background-position: center;
+    }
+    .portfolio-block {
+        height: 30rem;
+        grid-template-areas: "NameDetails" "ToolDetails" "Description";
+        grid-template-columns: 1fr;
+        grid-template-rows: 150px 80px 1fr;
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+    }
+    .portfolio-block .portfolio-block-title .portfolio-block-text-container {
+        width: max(60%,25rem);
+        margin: 3%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        justify-self: center;
+    }
+    .portfolio-block .portfolio-block-title .portfolio-block-text-container h4 {
+        font-size: 1rem;
+        margin: 0px;
+    }
+    .portfolio-block .portfolio-block-title .portfolio-block-text-container h3 {
+        font-size: 1.5rem;
+        margin: 0px;
+    }
+    .portfolio-block .portfolio-block-title .portfolio-block-text-container h2 {
+        font-size: 2rem;
+        margin: 0px;
+    }
+    .portfolio-block .portfolio-block-tools .portfolio-block-tools-container
+    {
+        margin:0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .portfolio-block .portfolio-block-description .description-padding{
+        margin: 0px;
+        margin-top: 7px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 @media screen and (max-width:600px) {
+    #main-nav .aboutme-button,
+    .resume, .portfolio-button {
+        display: none;
+    }
     #header-wrapper {
         grid-template-areas: "Navigation" "DropDown" "Image" "Text";
         grid-template-columns: 1fr;
@@ -365,41 +487,5 @@ h6 {
         margin-right: auto;
         padding: 0px;
     }
-    #main-nav .aboutme-button,
-    .resume {
-        display: none;
-    }
-    #trainworks {
-        background-size: 150%;
-        background-position: center;
-    }
-    #trainworks:hover {
-        background-size: 160%;
-        background-position: center;
-    }
-    .portfolio-block {
-        grid-template-areas: "NameDetails" "ToolDetails";
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        width: 95%;
-        margin-left: 2.5%;
-        margin-right: 2.5%;
-    }
-    .portfolio-block .portfolio-block-title .portfolio-block-text-container {
-        margin: 3%;
-        text-align: center;
-        justify-self: center;
-    }
-    .portfolio-block .portfolio-block-title .portfolio-block-text-container h4 {
-        font-size: 1rem;
-        margin: 0px;
-    }
-    .portfolio-block .portfolio-block-title .portfolio-block-text-container h3 {
-        font-size: 1.5rem;
-        margin: 0px;
-    }
-    .portfolio-block .portfolio-block-title .portfolio-block-text-container h2 {
-        font-size: 2rem;
-        margin: 0px;
-    }
+    
 }

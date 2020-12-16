@@ -63,3 +63,15 @@
 	    //1. Math.floor(100 * 1/ 10 ^ 3)/1
 	    return g + " kMBTQ" [x / 3];
 	}
+
+	function FormatTime(n){
+		return `${AtLeastTwoZeroes(Math.trunc((n/3600)))}:${AtLeastTwoZeroes(Math.trunc((n/60) % 60))}:${AtLeastTwoZeroes(Math.trunc(n % 60))}`;
+	}
+
+	function AtLeastTwoZeroes(n){
+		if(n < 10){
+			return `0${n}`
+		}else{
+			return n;
+		}
+	}

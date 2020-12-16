@@ -22,7 +22,7 @@ class Upgrade {
     constructor(name = "", baseCost = 1, baseReturn = 0, costMultiplier = 1.1, href) {
         this.name = name;
         if (localStorage.getItem(name + "_owned")) {
-            this.owned = localStorage.getItem(name + "_owned");
+            this.owned = Number.parseInt(localStorage.getItem(name + "_owned"));
         } else {
             this.owned = 0;
         }
