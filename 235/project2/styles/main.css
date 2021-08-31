@@ -119,6 +119,17 @@ h2 {
     display: block;
 }
 
+.border-box {
+    padding: 0px;
+    border: 3px solid black;
+}
+
+.border-box>p {
+    margin-left: 3%;
+    margin-right: 3%;
+    text-align: left;
+}
+
 
 /*.result {
     position: relative;
@@ -193,12 +204,24 @@ button:focus {
     margin-bottom: 1em;
 }
 
+.right {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    height: 100%;
+    margin-right: 33%;
+}
+
+.fit {
+    font-size: 1.5rem;
+    height: 30%;
+    margin-bottom: 5px;
+}
+
 .options {
-    margin-left: 3.5rem;
-    margin-right: auto;
     border: 1px solid black;
-    width: 60%;
     background-color: white;
+    height: 100%;
 }
 
 .options>ul {
@@ -245,4 +268,26 @@ button:focus {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+.loadingBars {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loadingBars>div {
+    width: 2rem;
+}
+
+.ldBar-label {
+    font-size: 2em;
+}
+
+#rightLoad path.mainline {
+    stroke: green;
 }

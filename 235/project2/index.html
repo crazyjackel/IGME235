@@ -6,6 +6,8 @@
     <title>Sealed Pool Generator</title>
     <link rel="stylesheet" href="styles/main.css">
     <script src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/loading-bar.css" />
+    <script type="text/javascript" src="js/loading-bar.js"></script>
 </head>
 
 <body>
@@ -14,37 +16,55 @@
         <h1>Everything Sealed</h1>
     </header>
     <div id="intro">
+        <br/>
         <h2>Introduction</h2>
-        <p>This Web App is used to generate pools for usage in the Mtg Format known as Everything Sealed.</p>
-        <p>Everything Sealed is a Format in which you are given a selected commander, a copy of Prismatic Piper, and 140 other cards. You then are tasked with building a
-            <a href="https://magic.wizards.com/en/content/commander-format">Commander Legal Deck</a> from the generated card pool.</p>
+        <p>This Web App is used to generate pools for usage in the Mtg Formats collectively knowns as Everything Sealed</p>
+        <p>To Use this Webapp, Configure your settings on the Right. Then Generate Pool, Wait for the Pool to finish generating (May take a while, be Patient) and export it to a deck editor</p>
+        <div class="border-box">
+            <p>One Option: Generates a Random Commander or Partner Combination, then generates 140 cards in their color combination</p>
+
+            <p>Two Option: Generates Two Random Commanders/Partner Combinations, then generates 180 cards, 90 in each color Combination</p>
+
+            <p>Raw Sealed: Generates a Random Commander and then generates 250 random cards of any color.</p>
+
+        </div>
     </div>
     <div class="widgets grid twocolumn">
         <div class="widget-grid widget-grid-custom">
             <button type="button" id="generate" class="green">Generate Pool</button>
             <button type="button" id="export" class="green">Export Pool</button>
         </div>
-        <div class="options">
-            <ul>
-                <li>
-                    <input type="checkbox" id="funny" name="funny">
-                    <label for="funny">Generate Silver-Bordered Cards</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="conspiracy" name="conspiracy">
-                    <label for="conspiracy">Generate Conspiracy Cards</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="banned" name="banned">
-                    <label for="banned">Generate Banned Cards</label>
-                </li>
-            </ul>
+        <div class="right">
+            <select class="fit" id="mode">
+                <option value="one">One Option</option>
+                <option value="two">Two Option</option>
+                <option value="raw">Raw Sealed</option>
+            </select>
+            <div class="options">
+                <ul>
+                    <li>
+                        <input type="checkbox" id="funny" name="funny">
+                        <label for="funny">Generate Silver-Bordered Cards</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="conspiracy" name="conspiracy">
+                        <label for="conspiracy">Generate Conspiracy Cards</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="banned" name="banned">
+                        <label for="banned">Generate Banned Cards</label>
+                    </li>
+                </ul>
+            </div>
         </div>
-
     </div>
     <div id="spinner"></div>
 
     <h2>Results</h2>
+    <div class="loadingBars">
+        <div id="leftLoad" class="ldBar label-center" data-preset="fan" data-value="0" style="width:50%;height:50%"></div>
+        <div id="rightLoad" class="ldBar label-center" data-preset="fan" data-value="0" style="width:50%;height:50%"></div>
+    </div>
     <hr>
     <div id="commander">
     </div>
