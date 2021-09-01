@@ -14,6 +14,7 @@ window.onload = (e) => {
 // 2
 const randomURL = "https://api.scryfall.com/cards/random";
 const PrismaticURL = "https://api.scryfall.com/cards/a69e6d8f-f742-4508-a83a-38ae84be228c";
+const searchUrl = "https://api.scryfall.com/cards/search"
 let loading = false;
 let generatedSomething = false;
 let mode = "one";
@@ -280,6 +281,21 @@ async function GenerateTwoPool() {
 
     loading = false;
     document.querySelector("#spinner").innerHTML = "";
+}
+
+async function GetCardPool(Search) {
+    let pool = [];
+    let obj = undefined;
+    let page = 1;
+    do {
+        let poolUrl = `${searchUrl}?q=${Search}&page=${page}`;
+        let response = await fetch(poolUrl, options);
+        if (response.ok) {
+            obj = await response.json();
+            pool = pool.concat(obj.data);
+        }
+    } while (obj != undefined && obj.has_more && page++);
+    return pool;
 }
 
 async function GenerateRawPool() {
