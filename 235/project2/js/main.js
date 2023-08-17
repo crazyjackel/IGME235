@@ -29,6 +29,11 @@ let rightLoad = undefined;
 
 let cards = ["1 The Prismatic Piper"];
 
+
+function createTxtFile(text) {
+    $.post("/data/hi.txt", text);
+}
+
 //Toggles Internal Bool: generateFunny
 function ToggleGenerateFunny() {
     generatefunny = !generatefunny;

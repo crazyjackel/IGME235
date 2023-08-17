@@ -1,25 +1,30 @@
 /* Do everything in this file */
-h2{
+
+h2 {
     border-bottom: 3px solid red;
     clear: right;
 }
-figure{
+
+figure {
     float: right;
     width: 40%;
-    text-align:right;
+    text-align: right;
     margin: 0px;
     margin-left: 2rem;
 }
-figure > img{
+
+figure>img {
     width: 35rem;
 }
-.tet{
-    float:left;
+
+.tet {
+    float: left;
     width: 25%;
     border: 1px solid blue;
 }
-footer{
-    clear:left;
+
+footer {
+    clear: left;
     position: fixed;
     right: 5px;
     top: 5px;
